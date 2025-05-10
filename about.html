@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>About Us - Floré</title>
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+    * { box-sizing: border-box; }
+    body {
+        font-family: 'Almarai', 'Tajawal', sans-serif;
+        margin: 0; padding: 0;
+        background: linear-gradient(to bottom, #ffffff, #ffe6ec);
+    }
+    header {
+        background-color: white;
+        color: #7A1B2E;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+    header .logo-section {
+        display: flex;
+        align-items: center;
+    }
+    header img.logo { width: 50px; margin-left: 10px; }
+    header h1 { font-size: 24px; margin: 0; }
+    header .slogan {
+        text-align: right;
+        font-size: 16px;
+        line-height: 1.2;
+        color: #7A1B2E;
+        font-weight: bold;
+    }
+
+    nav {
+        background-color: #7A1B2E;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    nav a {
+        color: white;
+        padding: 14px 20px;
+        text-decoration: none;
+    }
+    nav a:hover { background-color: #550f20; }
+
+    .about-section {
+        position: relative;
+        background: url('ff.jpg') no-repeat center center;
+        background-size: cover;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .about-section::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(0,0,0,0.5);
+        z-index: 0;
+    }
+    .about-box {
+        position: relative;
+        background: rgba(255,255,255,0.9);
+        padding: 40px;
+        max-width: 750px;
+        text-align: center;
+        border-radius: 20px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        animation: slideFadeUp 1.5s ease forwards;
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    @keyframes slideFadeUp {
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .about-box h2 {
+        color: #7A1B2E;
+        font-size: 32px;
+        margin-bottom: 10px;
+        animation: pop 2s infinite alternate;
+    }
+    @keyframes pop {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05) rotate(-2deg); }
+        100% { transform: scale(1); }
+    }
+    .about-box .divider {
+        width: 0;
+        height: 4px;
+        background: #ff6681;
+        margin: 0 auto 20px;
+        border-radius: 2px;
+        animation: expand 1s ease forwards 1.5s;
+    }
+    @keyframes expand {
+        to { width: 60px; }
+    }
+    .about-box p {
+        color: #333;
+        font-size: 18px;
+        line-height: 1.8;
+        margin-bottom: 20px;
+        animation: fadeText 2s ease forwards 2s;
+        opacity: 0;
+    }
+    @keyframes fadeText {
+        to { opacity: 1; }
+    }
+    .icon-list {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 20px;
+    }
+    .icon-list div {
+        text-align: center;
+        color: #7A1B2E;
+        opacity: 0;
+        animation: iconFade 1s ease forwards;
+    }
+    .icon-list div:nth-child(1) { animation-delay: 2.5s; }
+    .icon-list div:nth-child(2) { animation-delay: 3s; }
+    .icon-list div:nth-child(3) { animation-delay: 3.5s; }
+
+    @keyframes iconFade {
+        from { transform: translateY(20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    .icon-list i {
+        font-size: 28px;
+        margin-bottom: 8px;
+    }
+
+    footer {
+        background-color: #7A1B2E;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="slogan">
+            ورد وهدايا، تصنع أجمل الحكايا<br>Flowers & gifts, crafting beautiful stories
+        </div>
+        <div class="logo-section">
+            <h1>Floré</h1>
+            <img src="logo.png" alt="Floré Logo" class="logo">
+        </div>
+    </header>
+
+    <nav>
+        <a href="index.html">Home | الرئيسية</a>
+        <a href="about.html">About | عنا</a>
+        <a href="products.html">Products | المنتجات</a>
+        <a href="delivery.html">Delivery | التوصيل</a>
+        <a href="contact.html">Contact | تواصل معنا</a>
+    </nav>
+
+    <main>
+        <div class="about-section">
+            <div class="about-box">
+                <h2>من نحن | About Us</h2>
+                <div class="divider"></div>
+                <p>Floré هو أكثر من مجرد محل ورد — إنه مساحة للإبداع والجمال. منذ انطلاقتنا، كنا نسعى لنقدم لكم زهوراً تختصر المشاعر وتروي الحكايات.  
+                   كل باقة نصنعها تحمل لمسة خاصة، سواء كانت تهنئة، حب، أو شكر.  
+                   <br><br>
+                   Floré is more than a flower shop — it’s a space for beauty and creativity. Since our founding, we’ve strived to offer flowers that tell stories and express emotions.  
+                   Every bouquet we craft carries a personal touch, whether it’s for celebration, love, or gratitude.
+                </p>
+                <div class="icon-list">
+                    <div><i class="fas fa-shipping-fast"></i><br>توصيل سريع<br>Fast Delivery</div>
+                    <div><i class="fas fa-gift"></i><br>هدايا رائعة<br>Beautiful Gifts</div>
+                    <div><i class="fas fa-leaf"></i><br>زهور طبيعية<br>Fresh Flowers</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>&copy; 2025 Floré | جميع الحقوق محفوظة لـ Zainab Alaradi</footer>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>Delivery - Floré</title>
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+    * { box-sizing: border-box; }
+    body {
+        font-family: 'Almarai', 'Tajawal', sans-serif;
+        margin: 0; padding: 0;
+        background: linear-gradient(to bottom, #ffffff, #ffe6ec);
+    }
+    header {
+        background-color: white;
+        color: #7A1B2E;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+    header .logo-section {
+        display: flex;
+        align-items: center;
+    }
+    header img.logo { width: 50px; margin-left: 10px; }
+    header h1 { font-size: 24px; margin: 0; }
+    header .slogan {
+        text-align: right;
+        font-size: 16px;
+        line-height: 1.2;
+        color: #7A1B2E;
+        font-weight: bold;
+    }
+
+    nav {
+        background-color: #7A1B2E;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    nav a {
+        color: white;
+        padding: 14px 20px;
+        text-decoration: none;
+    }
+    nav a:hover { background-color: #550f20; }
+
+    .delivery-section {
+        position: relative;
+        background: url('images/gg.jpg') no-repeat center center;
+        background-size: cover;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .delivery-section::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(0,0,0,0.4);
+        z-index: 0;
+    }
+    .delivery-box {
+        position: relative;
+        background: rgba(255,255,255,0.95);
+        padding: 25px;
+        max-width: 500px;
+        text-align: center;
+        border-radius: 20px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        animation: fadeSlide 1.5s ease;
+    }
+    @keyframes fadeSlide {
+        from { opacity: 0; transform: translateY(40px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .delivery-box h2 {
+        color: #7A1B2E;
+        font-size: 28px;
+        margin-bottom: 10px;
+        animation: pulseTitle 2s infinite alternate;
+    }
+    @keyframes pulseTitle {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.03) rotate(1deg); }
+        100% { transform: scale(1); }
+    }
+    .delivery-box .divider {
+        width: 60px;
+        height: 4px;
+        background: #ff6681;
+        margin: 0 auto 20px;
+        border-radius: 2px;
+    }
+    .steps {
+        display: flex;
+        justify-content: space-around;
+        margin: 20px 0;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+    .step {
+        background: #fff;
+        padding: 12px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        width: 110px;
+        animation: stepFade 1s ease forwards;
+        opacity: 0;
+    }
+    .step:nth-child(1) { animation-delay: 1.8s; }
+    .step:nth-child(2) { animation-delay: 2.1s; }
+    .step:nth-child(3) { animation-delay: 2.4s; }
+    .step i {
+        font-size: 24px;
+        color: #ff6681;
+        margin-bottom: 5px;
+    }
+    @keyframes stepFade {
+        from { transform: translateY(20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    form {
+        margin-top: 20px;
+        text-align: left;
+    }
+    form label {
+        display: block;
+        margin-bottom: 5px;
+        color: #7A1B2E;
+        font-weight: bold;
+    }
+    form input, form textarea {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-family: inherit;
+    }
+    form button {
+        background-color: #7A1B2E;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background 0.3s;
+        width: 100%;
+    }
+    form button:hover {
+        background: #a32d45;
+    }
+
+    .success-message {
+        display: none;
+        background: #d4edda;
+        color: #155724;
+        padding: 12px;
+        border: 1px solid #c3e6cb;
+        border-radius: 8px;
+        margin-top: 15px;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+    }
+    .success-message i {
+        margin-left: 10px;
+        color: #28a745;
+        font-size: 22px;
+    }
+
+    footer {
+        background-color: #7A1B2E;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+    </style>
+    <script>
+    function showSuccess() {
+        document.getElementById("success").style.display = "block";
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="slogan">
+            ورد وهدايا، تصنع أجمل الحكايا<br>Flowers & gifts, crafting beautiful stories
+        </div>
+        <div class="logo-section">
+            <h1>Floré</h1>
+            <img src="images/logo.png" alt="Floré Logo" class="logo">
+        </div>
+    </header>
+
+    <nav>
+        <a href="index.html">Home | الرئيسية</a>
+        <a href="about.html">About | عنا</a>
+        <a href="products.html">Products | المنتجات</a>
+        <a href="delivery.html">Delivery | التوصيل</a>
+        <a href="contact.html">Contact | تواصل معنا</a>
+    </nav>
+
+    <main>
+        <div class="delivery-section">
+            <div class="delivery-box">
+                <h2>التوصيل | Delivery</h2>
+                <div class="divider"></div>
+                <div class="steps">
+                    <div class="step">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>حدد الموقع<br>Select Location</p>
+                    </div>
+                    <div class="step">
+                        <i class="fas fa-truck"></i>
+                        <p>يتم التوصيل<br>Delivery in Progress</p>
+                    </div>
+                    <div class="step">
+                        <i class="fas fa-check-circle"></i>
+                        <p>تم الاستلام<br>Delivered</p>
+                    </div>
+                </div>
+                <form onsubmit="event.preventDefault(); showSuccess();">
+                    <label>الاسم الكامل | Full Name</label>
+                    <input type="text" placeholder="ادخل اسمك الكامل" required>
+                    <label>العنوان | Address</label>
+                    <input type="text" placeholder="ادخل عنوان التوصيل" required>
+                    <label>رقم الهاتف | Phone Number</label>
+                    <input type="tel" placeholder="ادخل رقم هاتفك" required>
+                    <label>ملاحظات إضافية | Additional Notes</label>
+                    <textarea placeholder="اكتب أي ملاحظات..."></textarea>
+                    <button type="submit">حفظ العنوان</button>
+                </form>
+                <div id="success" class="success-message">
+                    <i class="fas fa-check-circle"></i> تم حفظ عنوانك بنجاح!
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>&copy; 2025 Floré | جميع الحقوق محفوظة لـ Zainab Alaradi</footer>
+</body>
+</html>

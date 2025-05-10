@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>Floré - تأكيد الطلب</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Tajawal', 'Cairo', sans-serif; margin: 0; padding: 0; background: #fff; }
+
+        header {
+            background-color: white;
+            color: #7A1B2E;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        header .logo-section {
+            display: flex;
+            align-items: center;
+        }
+        header .logo-section img.logo { width: 50px; margin-left: 10px; }
+        header .logo-section h1 { font-size: 24px; margin: 0; }
+        header .slogan {
+            text-align: right;
+            font-size: 16px;
+            line-height: 1.2;
+            color: #7A1B2E;
+            font-weight: bold;
+        }
+
+        nav {
+            background-color: #7A1B2E;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        nav a:hover { background-color: #550f20; }
+
+        main {
+            max-width: 600px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 30px;
+            text-align: right;
+        }
+
+        h2 { color: #7A1B2E; }
+
+        .success-message {
+            color: green;
+            font-weight: bold;
+            margin: 20px 0;
+            font-size: 18px;
+        }
+
+        .stars {
+            display: flex;
+            justify-content: flex-start;
+            gap: 10px;
+            margin: 20px 0;
+            cursor: pointer;
+        }
+
+        .star {
+            font-size: 30px;
+            color: #ccc;
+            transition: color 0.3s;
+        }
+        .star.selected {
+            color: gold;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        select, button {
+            padding: 10px 14px;
+            margin: 12px 0;
+            font-family: 'Tajawal', 'Cairo', sans-serif;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            display: block;
+        }
+
+        button {
+            background: #7A1B2E;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #a32d45;
+        }
+
+        footer {
+            background-color: #7A1B2E;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="slogan">
+            ورد وهدايا، تصنع أجمل الحكايا<br>Flowers & gifts, crafting beautiful stories
+        </div>
+        <div class="logo-section">
+            <h1>Floré</h1>
+            <img src="logo.png" alt="Floré Logo" class="logo">
+        </div>
+    </header>
+
+    <nav>
+        <a href="index.html">Home | الرئيسية</a>
+        <a href="about.html">About | عنا</a>
+        <a href="products.html">Products | المنتجات</a>
+        <a href="delivery.html">Delivery | التوصيل</a>
+        <a href="contact.html">Contact | تواصل معنا</a>
+    </nav>
+
+    <main>
+        <h2>مراجعة الطلب | Order Review</h2>
+        <p><b>عدد المنتجات:</b> 3</p>
+        <p><b>السعر الإجمالي:</b> 25 BHD</p>
+
+        <label>اختر طريقة الدفع | Choose Payment Method:</label>
+        <select>
+            <option>الدفع عند الاستلام | Cash on Delivery</option>
+            <option>بطاقة ائتمان | Credit Card</option>
+            <option>Apple Pay</option>
+        </select>
+
+        <label>اختر منطقتك | Select Your Area:</label>
+        <select>
+            <option>عراد</option>
+            <option>المحرق</option>
+            <option>الحد</option>
+            <option>الرفاع</option>
+            <option>المنامة</option>
+            <option>مدينة حمد</option>
+            <option>مدينة عيسى</option>
+            <option>سترة</option>
+            <option>جدحفص</option>
+            <option>الدراز</option>
+            <option>المالكية</option>
+            <option>السنابس</option>
+            <option>القضيبية</option>
+            <option>الجفير</option>
+            <option>توبلي</option>
+            <option>البسيتين</option>
+        </select>
+
+        <button onclick="confirmOrder()">تأكيد الطلب | Confirm Order</button>
+
+        <div id="message" class="success-message" style="display: none;">
+            تم تأكيد طلبك، شكراً لتسوقك من فلوري، نراك قريباً <span>😊</span>
+        </div>
+
+        <div id="rating" style="display: none;">
+            <p><b>كيف كانت تجربتك مع فلوري؟ | How was your experience with Floré?</b></p>
+            <div class="stars">
+                <span class="star" onclick="rate(1)">&#9733;</span>
+                <span class="star" onclick="rate(2)">&#9733;</span>
+                <span class="star" onclick="rate(3)">&#9733;</span>
+                <span class="star" onclick="rate(4)">&#9733;</span>
+                <span class="star" onclick="rate(5)">&#9733;</span>
+            </div>
+        </div>
+    </main>
+
+    <footer>&copy; 2025 Floré | All rights reserved to Zainab Alaradi</footer>
+
+    <script>
+        function confirmOrder() {
+            document.getElementById('message').style.display = 'block';
+            document.getElementById('rating').style.display = 'block';
+        }
+
+        function rate(starCount) {
+            const stars = document.querySelectorAll('.star');
+            stars.forEach((star, index) => {
+                star.classList.toggle('selected', index < starCount);
+            });
+        }
+    </script>
+</body>
+</html>
